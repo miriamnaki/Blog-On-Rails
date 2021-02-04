@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    
+    before_action :find_params, only:[:show,:edit,:update,:destroy]
     def home
     end
   
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     end
   
     def show
-      @post = Post.find params[:id]
+      
       @comments = Comment.all
       @comments = @post.comments.order(created_at: :DESC)
       @comment = Comment.new
@@ -29,11 +29,11 @@ class PostsController < ApplicationController
     end
   
     def edit
-      @post = Post.find params[:id]
+      
     end
   
     def update
-      @post = Post.find params[:id]
+      
       if @post.update post_params
         flash[:notice] = 'Post updated'
         redirect_to post_path(@post.id)
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     end
   
     def destroy
-      @post = Post.find params[:id]
+      
       @post.destroy
       redirect_to root_path
     end
@@ -53,6 +53,9 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body)
     end
 
+    def find_params
+      @post = Post.find params[:id]
+    end
   end
   
 
