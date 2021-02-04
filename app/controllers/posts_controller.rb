@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
     before_action :find_params, only:[:show,:edit,:update,:destroy]
     before_action :authenticated_user!,only:[:new,:create]
+    before_action :authorize_user!,only:[:edit,:update,:destroy]
+
     def home
     end
   
@@ -58,6 +60,10 @@ class PostsController < ApplicationController
     def find_params
       @post = Post.find params[:id]
     end
+
+  def authorize_user!
+    redirect_to root_path,alert: 'Not authorised' unless can?(:crud,@post)
+  end
   end
   
 

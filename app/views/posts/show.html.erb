@@ -56,10 +56,10 @@
 </div>
 <small>
 Commented <%= time_ago_in_words(comment.created_at) %> ago 
+<% if can?(:crud, comment) || can?(:crud,@post) %>
 •
-
 <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data:{comfirm:'Are you sure?'} %>
-
+<% end %>
 </small>
 </p>
 
