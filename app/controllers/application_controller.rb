@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     helper_method :user_signed_in?
   
     def authenticated_user!
-      redirect_to root_path, notice: 'Please sign in' unless user_signed_in?
+      redirect_to root_path, notice: 'Please sign in first!' unless user_signed_in?
     end
     
     helper_method :authenticate_user!
