@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :find_params, only:[:show,:edit,:update,:destroy]
-    before_action :authenticated_user!,only:[:create]
+    before_action :authenticated_user!,only:[:new,:create]
     def home
     end
   

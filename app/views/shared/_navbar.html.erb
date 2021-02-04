@@ -2,13 +2,37 @@
   <h4><div class="navbar-brand"><%= link_to "Blog On rails", root_path %></div></h4>
  
     <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+         
+      <% if user_signed_in? %>
         <li class="nav-item nav-link">
+          <%= link_to 'Hello ' + current_user.name, edit_user_path(current_user.id) %>
+          </li>
+
+        <li class="nav-item nav-link">
+         <h4><%= link_to "Sign Out", session_path,method: :delete,
+          data: {confirm: 'Are you sure you want to log out?'} %></h4>    
+        </li>  
+
+        <% else %>
+
+      <li class="nav-item nav-link">
+        <h4><%= link_to "Sign Up", new_user_path %></h4>
+      </li>
+
+      <li class="nav-item nav-link">
+       <h4><%= link_to "Sign In", new_session_path %></h4>
+      </li>
+      <% end %>
+
+      <li class="nav-item nav-link">
             <h4><%= link_to "Home", root_path %></h4>
         </li>
+        
         <li class="nav-item nav-link">
             <h4><%= link_to 'New Post', new_post_path %></h4>
-        </li>    
-      </ul>
-    
+      </li> 
+
+    </ul>
+ 
   </div>
 </nav>
