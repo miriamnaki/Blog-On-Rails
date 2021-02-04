@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     before_action :find_params, only:[:show,:edit,:update,:destroy]
+    before_action :authenticated_user!,only:[:create]
     def home
     end
   
@@ -9,6 +10,7 @@ class PostsController < ApplicationController
   
     def create
       @post = Post.new post_params
+      @post.user = current_user
       if @post.save
         flash[:notice] = 'Post created'
         redirect_to post_path(@post.id)
