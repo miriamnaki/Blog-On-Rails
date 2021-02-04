@@ -41,7 +41,7 @@ class PostsController < ApplicationController
         render :edit
       end
     end
-  # destroy
+  # destroy method
     def destroy
       
       @post.destroy
