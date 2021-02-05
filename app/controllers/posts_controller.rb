@@ -26,6 +26,7 @@ class PostsController < ApplicationController
       @comments = Comment.all
       @comments = @post.comments.order(created_at: :DESC)
       @comment = Comment.new
+      
     end
   
     def index

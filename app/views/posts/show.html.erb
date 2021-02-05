@@ -16,7 +16,7 @@
 </small>
 
 
-
+<% if can?(:crud, @post)%>
 <small>
 <%= link_to 'Edit', edit_post_path(@post.id),class:'btn btn-outline-primary'  %>
 </small>
@@ -24,7 +24,7 @@
 <small>
 <%= link_to 'Delete',post_path(@post.id),method: :delete, data:{comfirm:'Are you sure you want to delete'},class:'btn btn-outline-primary'  %>
 </small>
-
+<% end %>
 </div>
 </div>
 
@@ -56,14 +56,15 @@
 </div>
 <small>
 Commented <%= time_ago_in_words(comment.created_at) %> ago 
-<% if can?(:crud, comment) || can?(:crud,@post) %>
-•
-<%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data:{comfirm:'Are you sure?'} %>
-<% end %>
 </small>
+<% if can?(:crud, comment) || can?(:crud, @comment.post) %>
+
+•
+<small>
+<%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data:{comfirm:'Are you sure?'} %>
+</small>
+<% end %>
 </p>
-
-
 
 <% end %>
 </div>
