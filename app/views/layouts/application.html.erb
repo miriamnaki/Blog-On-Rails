@@ -10,7 +10,12 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
+  
   <body>
+  <%= render 'shared/navbar' %>
+  <div class='container'>
+  <h4><%= flash[:notice] || flash[:alert] %></h4>
+  </div>
     <%= yield %>
   </body>
 </html>
