@@ -1,70 +1,74 @@
 <div class='container'>
-<div class='card'>
-<div class='card-body'>
 
-<div class='card-title'>
-<h4><%= @post.title%></h4>
-</div>
-<div class= 'card-text'>
-<%= @post.body%>
-</div>
+  <div class='card'>
+  <div class='ml-4 mr-4 mt-4 mb-4'>
+    <div class='card'>
+      <div class='card-body'>
 
-<br>
+        <div class='card-title'>
+          <h4><%= @post.title%></h4>
+        </div>
+        <div class= 'card-text'>
+          <%= @post.body%>
+        </div>
 
-<small>
-<p>Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
-</small>
+       <br>
+
+      <small>
+      <p>Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+      </small>
 
 
-<% if can?(:crud, @post)%>
-<small>
-<%= link_to 'Edit', edit_post_path(@post.id),class:'btn btn-outline-primary'  %>
-</small>
+      <% if can?(:crud, @post)%>
+      <small>
+         <%= link_to 'Edit', edit_post_path(@post.id),class:'btn btn-outline-primary'  %>
+      </small>
 
-<small>
-<%= link_to 'Delete',post_path(@post.id),method: :delete, data:{comfirm:'Are you sure you want to delete'},class:'btn btn-outline-primary'  %>
-</small>
-<% end %>
-</div>
-</div>
+      <small>
+         <%= link_to 'Delete',post_path(@post.id),method: :delete, data:{comfirm:'Are you sure you want to delete'},class:'btn btn-outline-primary'  %>
+      </small>
+      <% end %>
+    </div>
+  </div>
 
-<br>
+  <br>
 
-<%= form_with model:[@post,@comment], local: true do |f| %>
+    <%= form_with model:[@post,@comment], local: true do |f| %>
 
-<% if @comment.errors.present? %>
-<%= @comment.errors.full_messages.join(', ') %>
-<% end %>
+    <% if @comment.errors.present? %>
+       <%= @comment.errors.full_messages.join(', ') %>
+    <% end %>
 
-<div class='form-group mb-3'>
- <h5><%= f.label :body,'Comment' %></h5>
- <%= f.text_area :body, class:'form-control',cols:5, rows:5, placeholder:'What is your mind?'%>
-</div>
+    <div class='form-group mb-3'>
+      <h5><%= f.label :body,'Comment' %></h5>
+      <%= f.text_area :body, class:'form-control',cols:5, rows:5, placeholder:'What is your mind?'%>
+    </div>
 
-<div class='form-group mb-3'>
-<%= f.submit 'Submit', class:'btn btn-outline-primary'%>
-</div>
+    <div class='form-group mb-3'>
+    <%= f.submit 'Submit', class:'btn btn-outline-primary'%>
+    </div>
 
-<% end %>
+    <% end %>
 
-<br>
+     <br>
 
 <% @comments.each do |comment| %>
-<p>
-<div>
-<%= comment.body%>
-</div>
-<small>
-Commented <%= time_ago_in_words(comment.created_at) %> ago 
-</small>
-<% if can?(:crud, comment) || can?(:crud, @comment.post) %>
+    <p>
+      <div>
+         <%= comment.body%>
+      </div>
+      <small>
+         Commented <%= time_ago_in_words(comment.created_at) %> ago 
+      </small>
+    <% if can?(:crud, comment) || can?(:crud, @comment.post) %>
 
-•
-<small>
-<%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data:{comfirm:'Are you sure?'} %>
-</small>
-<% end %>
-</p>
+    •
+      <small>
+        <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data:{comfirm:'Are you sure?'} %>
+      </small>
+    <% end %>
+    </p>
 
 <% end %>
+ </div>
 </div>

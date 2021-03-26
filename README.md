@@ -1,21 +1,44 @@
-# README
+# Blog On Rails - Blogging /Chat App
+## Table of Contents
+* Summary
+* Technology Used
+* Features
+* Screenshots
+* Live Demo
+* Installation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Summary
+This application lets users post blogs and comment on posted blogs.It is a socializing application where users can share ideas
 
-Things you may want to cover:
+## Technology used:
 
-* Ruby version
+* Ruby on Rails v 6.1
+* Bootstrap
+* HTML / html.erb
+* CSS
+* PostgreSQL
 
-* System dependencies
+## Features:
+* Sign up, sign in and sign out
+* Edit their profile and change password
+* Post Edit and delete a blog
 
-* Configuration
+## Screenshots:
+![image](https://user-images.githubusercontent.com/74625242/112571017-609d3300-8da4-11eb-8633-e96a9ae3d966.png)
 
-* Database creation
+![image](https://user-images.githubusercontent.com/74625242/112571118-9b06d000-8da4-11eb-882f-86e7d06a1839.png)
 
-* Database initialization
 
-* How to run the test suite
+## Installation:
+* git clone URL
+* cd into project
+* Run npm i
+* Run rails s
+
+
+
+
+
 
 * Services (job queues, cache servers, search engines, etc.)
 
