@@ -36,12 +36,3 @@ This application lets users post blogs and comment on posted blogs.It is a socia
 * Run rails s
 
 
-
-
-
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
