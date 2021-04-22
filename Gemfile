@@ -32,6 +32,8 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 gem 'cancancan', '~> 3.2', '>= 3.2.1'
 
+gem 'turbolinks'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
