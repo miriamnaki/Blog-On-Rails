@@ -205,7 +205,7 @@ DEPENDENCIES
   rails (~> 6.1.1)
   sass-rails (>= 6)
   spring
-  turbolinks
+  turbolinks (~> 5.2.0)
   tzinfo-data
   web-console (>= 4.1.0)
   webpacker (~> 5.0)

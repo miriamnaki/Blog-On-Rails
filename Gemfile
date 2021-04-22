@@ -32,7 +32,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 gem 'cancancan', '~> 3.2', '>= 3.2.1'
 
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.2.0'
 
 
 group :development, :test do
