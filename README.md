@@ -32,7 +32,8 @@ This application lets users post blogs and comment on posted blogs.It is a socia
 ## Installation:
 * git clone URL
 * cd into project
-* Run npm i
+* Run npm i 
+* Run bundle install
 * Run rails s
 
 

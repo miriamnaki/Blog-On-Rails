@@ -1,35 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <h4><div class="navbar-brand"><%= link_to "Blog On rails", root_path %></div></h4>
+  <h5><div class="navbar-brand"><%= link_to "Blog On rails", root_path %></div></h5>
  
     <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
          
       <% if user_signed_in? %>
         <li class="nav-item nav-link">
-          <h6>Welcome <%= link_to current_user.name, edit_user_path(current_user.id) %></h6>
+          <h5>Welcome <%= link_to current_user.name, edit_user_path(current_user.id) %></h5>
           </li>
 
         <li class="nav-item nav-link">
-         <h6><%= link_to "Sign Out", session_path,method: :delete,
-          data: {confirm: 'Are you sure you want to log out?'} %></h6>    
+         <h5><%= link_to "Sign Out", session_path,method: :delete,
+          data: {confirm: 'Are you sure you want to log out?'} %></h5>    
         </li>  
 
         <% else %>
 
       <li class="nav-item nav-link">
-        <h6><%= link_to "Sign Up", new_user_path %></h6>
+        <h5><%= link_to "Sign Up", new_user_path %></h5>
       </li>
 
       <li class="nav-item nav-link">
-       <h6><%= link_to "Sign In", new_session_path %></h6>
+       <h5><%= link_to "Sign In", new_session_path %></h5>
       </li>
       <% end %>
 
       <li class="nav-item nav-link">
-            <h6><%= link_to "Home", root_path %></h6>
+            <h5><%= link_to "Home", root_path %></h5>
         </li>
         
         <li class="nav-item nav-link">
-            <h6><%= link_to 'New Post', new_post_path %></h6>
+            <h5><%= link_to 'New Post', new_post_path %></h5>
       </li> 
 
     </ul>
